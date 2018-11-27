@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Mytest</title>
+		<meta charset utf-8>
+		<style>
+		.snowfall-flakes{
+			position:relative;/*相对定位：相对原点*/
+			width:20px;
+			height:200px;
+			margin:100px auto;
+		}/*样式选择器*/
+
+		.snowfall-flakes:before, .snowfall-flakes:after{
+			content:"";
+			position:absolute;/*绝对定位*/
+			top:0;
+			left: 0;
+			width:10px;
+			height:15px;
+			background-color:red;
+			border-radius:5px 5px 0 0;
+		}
+		.snowfall-flakes:before{
+			transform:rotate(-45deg);
+			}
+		.snowfall-flakes:after{
+			transform: translate(3.6px) rotate(45deg);
+		}
+		body{
+			overflow:hidden;
+			margin:0;
+		}
+		</style>
+	</head>
+<body>
+	<image src ="./2.jpg" width=100% hight =auto>
+	<div class ="cont"> </div>
+	<script src ="./jquery-1.2.6.min.js"></script>
+	<script src ="./snowfall.jquery.js"></script>
+	<script>
+		$(document).snowfall({flakeCount : 100, maxSpeed : 10});
+	</script>
+	
+</body>
+
+</html>
