@@ -1,47 +1,86 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Mytest</title>
+		<title>一起来看流星雨--12.1</title>
 		<meta charset utf-8>
 		<style>
-		.snowfall-flakes{
-			position:relative;/*相对定位：相对原点*/
-			width:20px;
-			height:200px;
-			margin:100px auto;
-		}/*样式选择器*/
-
-		.snowfall-flakes:before, .snowfall-flakes:after{
-			content:"";
-			position:absolute;/*绝对定位*/
-			top:0;
-			left: 0;
-			width:10px;
-			height:15px;
-			background-color:red;
-			border-radius:5px 5px 0 0;
-		}
-		.snowfall-flakes:before{
-			transform:rotate(-45deg);
-			}
-		.snowfall-flakes:after{
-			transform: translate(3.6px) rotate(45deg);
+		html{
+		width:100%;
+		height:100%;
 		}
 		body{
-			overflow:hidden;
+			display: flex;
+			justify-content:center;
+			align-items:center;
+			height:100%;
+			width:100%;
 			margin:0;
+			overflow:hidden;
+			background-image:url("images/1.jpg");
+			background-repeat: no-repeat;/*重复项*/
+			background-size:100% 100%;
+		}
+		.snowfall-flakes{
+		position:relative;
+			width: 0;
+			height: 0;
+		}
+		.snowfall-flakes,.snowfall-flakes:before,.snowfall-flakes:after{
+			
+			border-top:5px solid #e7e7e7;
+			border-right:10px solid transparent;
+			border-left:10px solid transparent;
+		}
+		.snowfall-flakes:before,.snowfall-flakes:after{
+			content:"";
+			position:absolute;
+			top: -5px;
+			left: -10px;
+		}
+		
+		.snowfall-flakes:before{
+			transform:rotate(76deg);
+		}
+		.snowfall-flakes:after{
+			transform:rotate(-76deg);
 		}
 		</style>
 	</head>
 <body>
-	<image src ="./2.jpg" width=100% hight =auto>
-	<div class ="cont"> </div>
-	<script src ="./jquery-1.2.6.min.js"></script>
-	<script src ="./snowfall.jquery.js"></script>
+	<script src ="js/jquery-1.2.6.min.js"></script>
+	<script src ="js/snowfall.jquery.js"></script>
 	<script>
 		$(document).snowfall({flakeCount : 100, maxSpeed : 10});
 	</script>
-	
 </body>
-
 </html>
+<!--
+元素自适应居中
+第一种：计算宽高
+.star{
+			position:absolute;/*自适应居中*/
+			top:50%;
+			left:50%;
+			width: 100px;
+			height: 100px;
+			background-color:#e1e1e1; 
+			margin-top: -50px;
+			margin-left: -50px;/*需要自己计算宽高*/
+		}
+第二种margin自适应，不用计算
+.star{
+			position:absolute;/*自适应居中*/
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			width: 100px;
+			height: 100px;
+			background-color:#e1e1e1; 
+			margin:auto;
+		}
+第三种：弹性盒模型
+
+浮动：后来的在下边
+定位：后来者居上
+-->
